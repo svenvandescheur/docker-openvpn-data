@@ -2,11 +2,19 @@ version: '2'
 services:
   data:
     build: ./
+  dnsmasq:
+    cap_add:
+      - NET_ADMIN
+    image: svenv/dnsmasq
+    ports:
+      - 53:53/udp
+    restart: always
   openvpn:
     cap_add:
       - NET_ADMIN
     depends_on:
       - data
+      - dnsmasq
     image: svenv/openvpn
     ports:
       - 1194:1194/udp
