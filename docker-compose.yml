@@ -1,0 +1,15 @@
+version: '2'
+services:
+  data:
+    build: ./
+  openvpn:
+    cap_add:
+      - NET_ADMIN
+    depends_on:
+      - data
+    image: svenv/openvpn
+    ports:
+      - 1194:1194
+    restart: always
+    volumes_from:
+      - data
