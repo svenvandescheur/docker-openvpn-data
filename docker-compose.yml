@@ -9,7 +9,7 @@ services:
       - data
     image: svenv/openvpn
     ports:
-      - 1194:1194
+      - 1194:1194/udp
     restart: always
     volumes_from:
       - data
