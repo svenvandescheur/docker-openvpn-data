@@ -7,7 +7,7 @@ services:
       - NET_ADMIN
     image: svenv/dnsmasq
     ports:
-      - 53:53/udp
+      - 5353:53/udp
     restart: always
   openvpn:
     cap_add:
